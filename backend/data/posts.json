@@ -1,1 +1,8 @@
-[{"title":"test","body":"body test","date":"2021-11-09T22:48:19.883Z","id":1}]
+[
+  {
+    "id": 1,
+    "title": "test",
+    "body": "body test",
+    "date": "2021-11-09T22:48:19.883Z"
+  }
+]
