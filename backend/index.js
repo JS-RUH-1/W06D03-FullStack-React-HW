@@ -6,14 +6,21 @@ const {arr}  = require("./data.js");
 app.use(cors())
 app.use(express.json());
 
+//Note: i used proxy in package.json in React.js   
+// "proxy": "http://localhost:3000",
+// in this hw you just have to use it in the front-end 
+// if it a real project and it will be  production you will have to include it in your backend
+
 //GET
 app.get("/", (req, res) => {
+  // .json work as JSON.Stringfly 
   res.json(arr);
 });
 
-//POST
+//POST - this post don't write/read so it will not be saved 
 app.post("/", (req, res) => {
-  
+// from the front-end we are sending {title , description , date }
+// it will be stored in newData
   let newData = req.body;
   console.log(newData)
   newData.id= arr.length+1;
@@ -21,27 +28,4 @@ app.post("/", (req, res) => {
   res.send(arr);
 });
 
-
-//PUT
-
-// app.put("/:id", (req, res) => {
-//   let index = jsonObj.findIndex((game) => game.id === parseInt(req.params.id));
-//   // if the user enter wrong id
-//   if (index == -1) return res.send("The id is not exsist");
-//   //else
-//   let newName = req.body.name;
-//   jsonObj[index].name = newName;
- 
-//   res.send(jsonObj);
-// });
-//DELETE
-// app.delete("/:id", (req, res) => {
-//   let index = jsonObj.findIndex((game) => game.id === parseInt(req.params.id));
-//   // if the user enter wrong id
-//   if (index == -1) return res.send("The id is not exsist");
-//   //else
-//   jsonObj.splice(index, 1);
-
-//   res.send(jsonObj);
-// });
 app.listen(3001);
