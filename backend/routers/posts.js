@@ -11,9 +11,10 @@ router.get('/', async (req, res) => {
 // add new post
 router.post('/', async (req, res) => {
   const data = JSON.parse(await fs.readFile('data/posts.json', 'utf-8'));
-  data.push(req.body) // push new data -- this is without validation.
+  let newPost = {id: data.length + 1, ...req.body};
+  data.push(newPost) // push new post 
   await fs.writeFile('data/posts.json', JSON.stringify(data));
-  return res.json(req.body);
+  return res.json(newPost);
 })
 
 // update post
