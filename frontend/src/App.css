@@ -1,0 +1,53 @@
+body {
+    background: rgb(45, 43, 43);
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.singlePost {
+    background-color: aqua;
+    padding: 20px;
+    margin: 20px;
+}
+
+.addSection {
+    background-color: blue;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    padding: 10px;
+    border-radius: 40%;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.formSection {
+    background-color: gray;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    animation: myMove .2s;
+}
+
+@keyframes myMove {
+    from {top: 0px;}
+    to {top: 300px;}
+  }
+input {
+    padding: 10px;
+    font-size: 20px;
+    color: #000;
+}
+label {
+    color: #fff;
+    font-size: 20px;
+}
