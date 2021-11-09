@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.3",
+    "express-proxy": "0.0.2",
+    "express-proxy-middleware": "^1.0.8",
+    "morgan": "^1.10.0",
+    "proxy": "^1.0.2"
+  }
+}
