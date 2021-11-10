@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.3",
+    "express-proxy": "0.0.2",
+    "http-proxy-middleware": "^2.0.1",
+    "morgan": "^1.10.0",
+    "proxy": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"  }
+}
