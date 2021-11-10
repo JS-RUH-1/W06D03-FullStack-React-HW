@@ -15,7 +15,8 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     let user = {
-        name: req.body.name,
+        title: req.body.title,
+        body: req.body.body,
         id: Math.floor(Math.random() * 1000) + 1
     }
     users.push(user)

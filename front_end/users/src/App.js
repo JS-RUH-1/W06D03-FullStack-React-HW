@@ -6,6 +6,7 @@ import axios from 'axios';
 function App() {
   const [users, setUsers] = React.useState([])
   const [user, setUser] = React.useState('')
+  const [body, setBody] = React.useState('')
 
   // React.useEffect(() => {
   //   fetch('/users/', {
@@ -40,7 +41,7 @@ function App() {
   // }, [users])
   
   const handleClick = () => {
-    axios.post('http://localhost:5000', {name: user})
+    axios.post('http://localhost:5000', {title: user, body: body})
     .then((res) => {
       // console.log(res.data)
       setUsers([...users, res.data])
@@ -58,13 +59,21 @@ function App() {
   }
 
   return (
-    <div className="App">
-      USERS LISTS: <br/>
+    <div style={{width:'352px', margin: '0 auto'}}  className="App">
+      <h1>BLOGS LIST:</h1> <br/>
       {users.map((user) => (
-         <li key={user.id}>{user.name} <button onClick={()=> handleDelet(user.id)}>DELETE</button></li>
+        <div style={{textAlign:'left', border:'1px solid grey', padding: '20px'}}  key={user.id}>
+         <h3>Title:</h3>
+         <p>{user.title}</p>
+         <h3>Body:</h3>
+         <p> {user.body} </p>
+         <button onClick={()=> handleDelet(user.id)}>DELETE</button><br/><br/>
+         </div>
       ))}
 
-     <input onChange={(e) => setUser(e.target.value)}></input>
+     <br/>  
+     <input placeholder='Title' style={{width:'350px'}} onChange={(e) => setUser(e.target.value)}></input><br/><br/>
+     <textarea  placeholder='Body'  onChange={(e) => setBody(e.target.value)} rows='9' cols="42" ></textarea><br/>
      <button onClick={handleClick}>POST</button>
     </div>
   );
