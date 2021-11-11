@@ -1,0 +1,26 @@
+.homework{
+  border: 1px solid;
+  width:30%;
+  height: 100%;
+  background-color:darkgray;
+  text-align: center;
+ margin-left: 35%;
+}
+h1{
+  text-align: center;
+}
+.inp{
+  border: 1px solid;
+  width:30%;
+  height: 100%;
+  background-color:darkgray;
+  text-align: center;
+ margin-left: 35%;
+}
+.put{
+  background-color: rgb(140, 199, 155);
+  margin-top: 5px;
+  padding: 8px;
+  text-align: center;
+  margin-left: 48%;
+}
