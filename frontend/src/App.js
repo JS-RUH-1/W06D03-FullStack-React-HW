@@ -5,14 +5,17 @@ import {useEffect , useState} from "react"
 // import { get } from '../../backend/routes/blogRoute'
 
 
+
 function App() {
+  
   let [posts,setPosts]=useState([])
     // HERE SHOULD EDIT THE USESTATYUS BECOUSE IT TAKE (TITLE ,LUNK, TECHS) NOT  ****
   let [title ,setTitle]=useState()
   let [link ,setLink]=useState()
   let [description, setDescription]=useState()
   let [technologiesUsed, setTechnologiesUsed]=useState()
-
+  let [showForm,setShow]=useState(false)
+  let [saveId,setId ]=useState()
   
 useEffect(()=>{
   axios
@@ -40,6 +43,23 @@ function deletePost(id) {
   
       });
     }
+ function EditPost (e,id){
+   e.preventDefault()
+   setShow(true)
+   setId(id)
+   console.log(id)
+
+ }
+
+ function SaveEdit (e,id){
+ e.preventDefault()
+ let obj = { title:title, link:link,technologiesUsed:technologiesUsed,description:description}
+ axios.put(`http://localhost:3001/github/${id}`,obj)
+ .then((res)=>{
+   setPosts(res.data);
+ })
+ }
+
 
 
 
@@ -52,28 +72,49 @@ function deletePost(id) {
 
   return (
     <div className="App">
+
+
+      <header className="App-header">
 <input placeholder="title" onChange={(e)=>{setTitle(e.target.value)}} type="text"/>
 <input placeholder="link" onChange={(e)=>{setLink(e.target.value)}} type="text"/>
 <input placeholder="tech" onChange={(e)=>{setTechnologiesUsed(e.target.value)}} type="text"/>
 <input placeholder="description" onChange={(e)=>{setDescription(e.target.value)}} type="text"/>
-<input placeholder="Edit" onChange={(e)=>{set(e.target.value)}} type="text"/>
+{/* <input placeholder="Edit" onChange={(e)=>{set(e.target.value)}} type="text"/> */}
 <button onClick={add}>Add</button>
 
     {
-      posts.map((e)=>{
+      posts.map((element)=>{
 return(
   <div>
-    {e.id}
-    {e.title}
-    {e.link}
-    {e.technologiesUsed}
-    {e.description}
-    <button onClick={()=>{deletePost(e.id)}}>Delet</button>
+    {element.id}
+    {element.title}
+    {element.link}
+    {element.technologiesUsed}
+    {element.description}
+    <button onClick={()=>{deletePost(element.id)}}>DELETE</button>
+    <button onClick={(e)=>{EditPost(e,element.id)}}>EDIT</button>
   </div>
     ) })
     }
+     {(function(){
+       if (showForm==true){
+         return(
+           <form>
+<input placeholder="title" onChange={(e)=>{setTitle(e.target.value)}} type="text"/>
+<input placeholder="link" onChange={(e)=>{setLink(e.target.value)}} type="text"/>
+<input placeholder="tech" onChange={(e)=>{setTechnologiesUsed(e.target.value)}} type="text"/>
+<input placeholder="description" onChange={(e)=>{setDescription(e.target.value)}} type="text"/>
+<button className="btn" onClick={(e)=>{
+  SaveEdit(e,saveId)
+}}>SAVE</button>
+           </form>
+         )
+       }
+
+
+     })()}
       
-    </div>
+    </header></div>
   );
 }
 
