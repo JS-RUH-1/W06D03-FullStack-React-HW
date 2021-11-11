@@ -1,4 +1,4 @@
-
+import './post.css';
 
 function Home() {
     return (
