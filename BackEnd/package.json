@@ -1,0 +1,24 @@
+{
+  "name": "w06d03-fullstack-react-hw",
+  "version": "1.0.0",
+  "description": "* get blog\r * post blog with: id, title, body, date\r #### from the frontend should be able to:\r * show all posts\r * create a new post",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JS-RUH-1/W06D03-FullStack-React-HW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JS-RUH-1/W06D03-FullStack-React-HW/issues"
+  },
+  "homepage": "https://github.com/JS-RUH-1/W06D03-FullStack-React-HW#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
